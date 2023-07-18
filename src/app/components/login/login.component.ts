@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
             console.log(resp);
             localStorage.setItem('token', resp.token);
             this.router.navigateByUrl('/todos');
-            respSubscription.unsubscribe(); // Unsubscribe, um ein Memory Leak zu vermeiden
+            respSubscription.unsubscribe(); 
           },
           (error: any) => {
             alert('Login fehlgeschlagen');
             console.error(error);
-            respSubscription.unsubscribe(); // Unsubscribe, um ein Memory Leak zu vermeiden
+            respSubscription.unsubscribe(); 
           }
         );
     } catch (e) {
@@ -42,13 +42,4 @@ export class LoginComponent implements OnInit {
       console.error(e);
     }
   }
-
-/*   public loginWithUsernameAndPassword(username: string, password: string) {
-    const url = environment.baseURL + '/login/';
-    const body = {
-      "username": username,
-      "password": password
-    }
-    return lastValueFrom(this.http.post(url, body));
-  } */
 }
